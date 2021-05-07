@@ -12,6 +12,8 @@ var product = require('./routes/product');
 var cors = require('cors');
 var app = express();
 app.use(cors());
+
+const port = process.env.PORT || 5000;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -55,6 +57,6 @@ mongoose.connect('mongodb://localhost/users')
 
 module.exports = app;
 
-server.listen(port,()=>{  // do not add localhost here if you are deploying it
+app.listen(port,()=>{  // do not add localhost here if you are deploying it
   console.log("server listening to port "+port);
 });
